@@ -1,10 +1,12 @@
 const express = require("express");
 
 const Shouts = require("../shouts/shouts-model.js");
+const shoutsRouter = require('../shouts/shouts-router')
 
 const router = express.Router();
 
 router.use(express.json());
+router.use('/shouts', shoutsRouter);
 
 router.get("/", (req, res) => {
   res.status(200).json({ api: "up" });
